@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+  .clock{
+  background-color:red;
+  width:120px;
+  height:100px;
+  position:relative;
+  left:58px;
+  top:50px;
+  }
+  .dig{
+  	position:absolute;
+  }
+  .hour{
+  	position:absolute;
+    background-color:green;
+    height:3px;
+    width:3px;
+  }
+  .min{
+  	position:absolute;
+    background-color:blue;
+    height:3px;
+    width:3px;
+  }
+  .sec{
+  	position:absolute;
+    background-color:orange;
+    height:3px;
+    width:3px;
+  }
+</style>
+</head>
 <body>
 
 <h2>JavaScript analog clock</h2>
   
-<p>Click "Try it"</p>
-
-<button onclick="setTimeout(myFunction);">Try it</button>
-  
-  
-<div style="width:120px;height:100px;position:relative;left:58px;top:50px;">
+<div class="clock">
  <div id="dig1" class="dig" style="top: -49.823px; left: 5.6814px;">1</div>
  <div id="dig2" class="dig" style="top: -35.2232px; left: 20.5112px;">2</div>
  <div id="dig3" class="dig" style="top: -15.1496px; left: 25.9997px;">3</div>
@@ -34,17 +62,23 @@
  <div id="min4" class="min" style="top: -16.0449px; left: 17.8483px;"></div>
  <div id="min5" class="min" style="top: -21.3932px; left: 23.7977px;"></div>
 
- <div id="sec1" class="sec" style="top: 0px; left: 0px;"></div>
- <div id="sec2" class="sec" style="top: -5.34831px; left: 5.94942px;"></div>
- <div id="sec3" class="sec" style="top: -10.6966px; left: 11.8988px;"></div>
- <div id="sec4" class="sec" style="top: -16.0449px; left: 17.8483px;"></div>
- <div id="sec5" class="sec" style="top: -21.3932px; left: 23.7977px;"></div>
- <div id="sec6" class="sec" style="top: -26.7415px; left: 29.7471px;"></div>
+<div id="sec1" class="sec" style="top: 0px; left: 0px;"></div>
+ <div id="sec2" class="sec" style="top: 7.60648px; left: -2.47819px;"></div>
+ <div id="sec3" class="sec" style="top: 15.213px; left: -4.95639px;"></div>
+ <div id="sec4" class="sec" style="top: 22.8194px; left: -7.43458px;"></div>
+ <div id="sec5" class="sec" style="top: 30.4259px; left: -9.91278px;"></div>
+ <div id="sec6" class="sec" style="top: 38.0324px; left: -12.391px;"></div>
+ 
 </div>
+<br><br>
+<p>Click "Try it"</p>
+
+<button onclick="setTimeout(myFunction);">Load new document</button>
 
 <script>
 function myFunction() {
-  alert('Something');
+  alert
+  window.location.assign("https://www.w3schools.com")
 }
 </script>
 
