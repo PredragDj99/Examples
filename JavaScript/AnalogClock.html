@@ -3,12 +3,11 @@
 <head>
 <style>
   .clock{
-  background-color:red;
-  width:120px;
-  height:100px;
-  position:relative;
-  left:58px;
-  top:50px;
+    width:10px;
+    height:60px;
+    position:relative;
+    left:58px;
+    top:50px;
   }
   .dig{
   	position:absolute;
@@ -33,10 +32,18 @@
   }
 </style>
 </head>
-<body>
+<body onLoad=startTime()>
 
 <h2>JavaScript analog clock</h2>
   
+<button onclick="setTimeout(myFunction);">I got idea here</button>
+<script>
+function myFunction() {
+  window.location.assign("https://www.w3schools.com/js/js_timing.asp")
+}
+</script> 
+
+<br><br>
 <div class="clock">
  <div id="dig1" class="dig" style="top: -44.823px; left: 12.6814px;">1</div>
  <div id="dig2" class="dig" style="top: -30.2232px; left: 27.5112px;">2</div>
@@ -62,23 +69,31 @@
  <div id="min4" class="min" style="top: -16.0449px; left: 17.8483px;"></div>
  <div id="min5" class="min" style="top: -21.3932px; left: 23.7977px;"></div>
 
-<div id="sec1" class="sec" style="top: 0px; left: 0px;"></div>
+ <div id="sec1" class="sec" style="top: 0px; left: 0px;"></div>
  <div id="sec2" class="sec" style="top: 7.60648px; left: -2.47819px;"></div>
  <div id="sec3" class="sec" style="top: 15.213px; left: -4.95639px;"></div>
  <div id="sec4" class="sec" style="top: 22.8194px; left: -7.43458px;"></div>
  <div id="sec5" class="sec" style="top: 30.4259px; left: -9.91278px;"></div>
  <div id="sec6" class="sec" style="top: 38.0324px; left: -12.391px;"></div>
- 
 </div>
-<br><br>
-<p>Click "Try it"</p>
+<br><br><br><hr><br>
 
-<button onclick="setTimeout(myFunction);">Load new document</button>
-
+<div id="txt"></div>
 <script>
-function myFunction() {
-  alert
-  window.location.assign("https://www.w3schools.com")
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
 }
 </script>
 
