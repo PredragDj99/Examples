@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body onLoad=startTime()>
+
+<br>
+<label>Number of columns:</label>
+<input id="columns" type="number" min="1"/>
+<br><br>
+
+<label>Number of rows:</label>
+<input id="rows" type="number" min="1"/>
+<br><br>
+<input type="button" onclick="CreateTable()" value="Create table"/>
+
+<br><br><br><hr><br>
+<p id="txt">
+
+<script>
+function CreateTable() {
+	var row = document.getElementById('rows').value;
+    var column = document.getElementById('columns').value;
+	
+    try {
+      if(row == "" || column == "") throw "You need to input numbers";
+      if(isNaN(row) || isNaN(column) || row<1 || column<1) throw "You need to input positive number";
+  	}
+  	catch(err) {
+      alert(err);
+  	}
+    document.getElementById('txt').innerHTML =  row+column;
+    
+    
+}
+
+</script>
+
+</body>
+</html>
