@@ -1,47 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  .clock{
-    width:10px;
-    height:60px;
-    position:relative;
-    left:58px;
-    top:50px;
-  }
-  .dig{
-  	position:absolute;
-  }
-  .hour{
-  	position:absolute;
-    background-color:green;
-    height:3px;
-    width:3px;
-  }
-  .min{
-  	position:absolute;
-    background-color:blue;
-    height:3px;
-    width:3px;
-  }
-  .sec{
-  	position:absolute;
-    background-color:orange;
-    height:3px;
-    width:3px;
-  }
-</style>
+  <script src="analogClock.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body onLoad=startTime()>
 
 <h2>JavaScript analog clock</h2>
-  
-<button onclick="setTimeout(myFunction);">I got idea here</button>
-<script>
-function myFunction() {
-  window.location.assign("https://www.w3schools.com/js/js_timing.asp")
-}
-</script> 
+ 
+<button onclick="setTimeout(myFunction);">I got the idea here</button><br><br>
+<a href="https://www.w3schools.com/js/js_timing.asp" target="_blank">I got the idea here(new tab)</a>
 
 <br><br>
 <div class="clock">
@@ -79,23 +47,6 @@ function myFunction() {
 <br><br><br><hr><br>
 
 <div id="txt"></div>
-<script>
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-}
-
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-</script>
 
 </body>
 </html>
