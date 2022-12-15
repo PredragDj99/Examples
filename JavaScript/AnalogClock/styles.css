@@ -1,0 +1,43 @@
+.clock{
+    width:10px;
+    height:60px;
+    position:relative;
+    left:58px;
+    top:50px;
+  }
+  .dig{
+  	position:absolute;
+  }
+  .hour{
+  	position:absolute;
+    background-color:green;
+    height:3px;
+    width:3px;
+  }
+  .min{
+  	position:absolute;
+    background-color:blue;
+    height:3px;
+    width:3px;
+  }
+  .sec{
+  	position:absolute;
+    background-color:orange;
+    height:3px;
+    width:3px;
+  }
+
+  a:link, a:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: green;
+    color: white;
+  }
