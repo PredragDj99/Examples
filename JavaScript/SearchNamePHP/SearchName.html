@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="SearchName.js"></script>
+    </head>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<p>Suggestions from PHP: <span id="txtHint"></span></p> 
+<p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
+
+<h4 id="js">JS:</h4>
+
+<br>
+<p id="ready"></p>
+<p id="not200"></p>
+<br>
+<p id="explanation">Status 0 explanation:<br>
+    Make sure to place the files in your server (apache or tomcat whatever)
+    and then open it via http protocol in the browser.
+    <br><br><b>You wont receive suggestions from PHP until that</b></p>
+
+</body>
+</html>
