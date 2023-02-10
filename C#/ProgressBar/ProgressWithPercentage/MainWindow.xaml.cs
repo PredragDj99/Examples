@@ -53,6 +53,8 @@ namespace ProgressWithPercentage
             if (pbStatus.Value == 100)
             {
                 lblGotovo.Content = "Uspesno ucitano!";
+                mojGrid.Children.Remove(pbStatus);
+                mojGrid.Children.Remove(tbStatus);
             }
         }
     }
