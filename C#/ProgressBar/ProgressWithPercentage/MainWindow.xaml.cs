@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgressWithPercentage.MessBox;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -55,6 +56,9 @@ namespace ProgressWithPercentage
                 lblGotovo.Content = "Uspesno ucitano!";
                 mojGrid.Children.Remove(pbStatus);
                 mojGrid.Children.Remove(tbStatus);
+
+                AutoCloseMess.Show("Ode progress bar :) \nOvo ce se samo zatvoriti ", "Information!", 5000);
+
             }
         }
     }
