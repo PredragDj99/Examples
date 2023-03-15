@@ -1,0 +1,32 @@
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.csprojAssemblyReference.cache
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\MainWindow.g.cs
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\App.g.cs
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim_MarkupCompile.cache
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim_MarkupCompile.lref
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\bin\Debug\ivice pravim.exe.config
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\bin\Debug\ivice pravim.exe
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\bin\Debug\ivice pravim.pdb
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\MainWindow.baml
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.g.resources
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice_pravim.Properties.Resources.resources
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.csproj.GenerateResource.cache
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.csproj.CoreCompileInputs.cache
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.exe
+C:\Users\Pedja\Desktop\Over\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.pdb
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.csprojAssemblyReference.cache
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\MainWindow.g.cs
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\Telefon.g.cs
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\App.g.cs
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim_MarkupCompile.cache
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim_MarkupCompile.lref
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.exe
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.pdb
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\bin\Debug\ivice pravim.exe.config
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\bin\Debug\ivice pravim.exe
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\bin\Debug\ivice pravim.pdb
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\MainWindow.baml
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\Telefon.baml
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.g.resources
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice_pravim.Properties.Resources.resources
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.csproj.GenerateResource.cache
+C:\Users\Pedja\Desktop\CoC\Stackoverflow i intervju\C sharp\ivice pravim\ivice pravim\obj\Debug\ivice pravim.csproj.CoreCompileInputs.cache

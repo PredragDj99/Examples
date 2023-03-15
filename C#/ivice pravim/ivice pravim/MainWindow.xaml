@@ -1,0 +1,39 @@
+﻿<Window x:Class="ivice_pravim.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ivice_pravim"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="894.798" Width="557.803" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Grid Margin="10,0,0,10">
+        <Canvas>
+
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Path Stroke="Black" StrokeThickness="2" Name="UIPath" Stretch="Fill" Height="890" Width="530" Canvas.Left="10">
+                <Path.Fill>
+                    <SolidColorBrush Color="White" />
+                </Path.Fill>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,0">
+
+                            <LineSegment Point="0,475"/>
+                            <BezierSegment Point1="0,475" Point2="0,500" Point3="25,500"></BezierSegment>
+                            <LineSegment Point="475,500" />
+                            <BezierSegment Point1="475,500" Point2="500,500" Point3="500,475"></BezierSegment>
+                            <LineSegment Point="500,0" />
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+        <Button Content="Klikni me" FontSize="40" Click="Button_Click" HorizontalAlignment="Left" Margin="122,775,0,0" VerticalAlignment="Top" Width="296" Height="58"/>
+    </Grid>
+</Window>
