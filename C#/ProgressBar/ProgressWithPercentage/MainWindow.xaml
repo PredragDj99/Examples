@@ -1,0 +1,17 @@
+﻿<Window x:Class="ProgressWithPercentage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgressWithPercentage"
+        mc:Ignorable="d"
+        Title="Progress bar" Height="450" Width="450"
+              
+        ContentRendered="Window_ContentRendered">
+    <Grid x:Name="mojGrid">
+        <Label FontSize="30" Margin="10,10,10,347">Progress bar sa procentom</Label>
+        <ProgressBar Height="40" Minimum="0" Maximum="100" Value="0" Name="pbStatus"/>
+        <TextBlock x:Name="tbStatus" Text="{Binding ElementName=pbStatus,Path=Value,StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Label x:Name="lblGotovo" FontSize="30" Margin="10,253,10,103" />
+    </Grid>
+</Window>

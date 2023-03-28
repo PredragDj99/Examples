@@ -1,0 +1,15 @@
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage.csprojAssemblyReference.cache
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\MainWindow.g.cs
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\App.g.cs
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage_MarkupCompile.cache
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage_MarkupCompile.lref
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\bin\Debug\ProgressWithPercentage.exe.config
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\bin\Debug\ProgressWithPercentage.exe
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\bin\Debug\ProgressWithPercentage.pdb
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\MainWindow.baml
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage.g.resources
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage.Properties.Resources.resources
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage.csproj.GenerateResource.cache
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage.csproj.CoreCompileInputs.cache
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage.exe
+C:\Users\Pedja\Desktop\Examples\C#\ProgressBar\ProgressWithPercentage\obj\Debug\ProgressWithPercentage.pdb
