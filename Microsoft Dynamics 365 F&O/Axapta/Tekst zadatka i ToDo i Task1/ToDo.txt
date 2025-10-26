@@ -1,0 +1,232 @@
+3. strana
+
+  pravi se EDT i onda se u properti Extends navode
+
+4. strana
+
+ Uvek prvo probaj da setujes na EDT ako si ga ti kreirao
+ AllowNegative - se podesava u EDT tog polja koji ga nasledjuje
+ Za FormRef je potrebno prvo napraviti Display Menu Item
+ 
+5. strana
+
+  Kreira se index pa se njemu dodaje polje Key
+  Form Template - u design se doda patern
+  Tabela se prevuce u DataSource pa se onda u dizajnu podesava Data Source i Data Field
+  Find metodu sam celu kopirao iz AssetParameters(kod tabele) i samo zamenio svojom tabelom
+	ako !NazivTabele vraca true znaci da ne treba da ima record-e(bafer tabele)
+
+6. strana
+
+  
+  
+7. strana
+
+  Kada imam polje tabela koje je ENUM tipa i trebam da dodam EDT properti radi se tako sto se podesi property enum type
+	moze da se setuje ili jedno ili drugo, a ovde je slucaj da treba Enum Type
+
+  Table Group - Group pa se zato metode kopiraju iz neke tabele koja isto ima group
+
+  Za metode se kao parametar dodaje EDT koji je u property-ju polja. Uzeo sam CustGroup kao primer
+  CustGroup ima index CustGroup, kada kliknem to polje pokaze mi EDT koji se zove CustGroupId. Kod mene je moj EDT indeksa parametar
+
+  Relation se radi dodavanjem related table i potom polja na samoj relaciji, naziva se po tabeli sa kojom se spaja
+	Cardinality property je koliko puta se polje roditeljske tabele moze pojaviti u nasoj - stavljam ZeroOne u smislu ne treba
+		ponavljati ime proizvodjaca vise puta
+	Related Table Cardinality - da li nase polje mora da ima vrednost ili moze i da nema
+
+  Da bi otisao na labelu iz koda odes u AOT, labels i kucas njeno ime(npr. SYS) i tamo nadjes en-US i onda nadjes koja ti treba
+  
+
+8. strana
+
+  U formi nemoj praviti polja nego ih samo prrevuci sa leva na desno u grid
+  Problem sa ComboBox prikazom je bio u tome sto sam labele nazvao isto u Enum-u. Trebao sam samo glavni naziv da nazovem tako,
+    a svakom polju da dodam posebnu labelu
+
+==Menjam redosled rada:
+  Radi se op hijerarhiji od najdonjeg pa ka gore. DataTypes, DataDictionary pa forme inace ce biti haos
+  1. Prvo sve tabele
+  2. Sve metode
+  3. Sve relacije
+  4. sve labele, help text, developer documentation
+
+Od Angele:
+  1. Data types - base enums edt
+  2.tabeli and properties
+  3.relacii cardinality on delete itn.. 
+  4.metodi na nivo na tabela (toa sto e dadeno na pocetok pokasno sam ke treba da dopisuvas)
+  5.formi i metodi na formi
+  6.Stom iskreiras forma kreiras i menu item display
+  7.Klasa - dokolki klasata e kalkulacija za dugme pravis action menu item
+
+--------------------------------------------------------------------------------------------------------------
+
+12. strana
+
+  Posto je tip prazan nadjes EDT i samo ga prevuces u polja
+
+7. strana
+Number Sequence
+--- extend base enum klase NumberSeqModule i dodas polje koje se zove kao tvoj model
+posle toga sve po snimku
+kada odradis Job klasu i pokrenes sacekaj da pise completed kod runner klase
+unosis 'number sequences' u pretragu i biras: Number sequences (organization administration > number sequences)
+ u listi area treba da se pojavi naziv tvog modela, a u Reference on sa cim radim i odaberem kompaniju pa kliknem na taj resurs
+kada udjem u njega otvorim segments tab i tu podesavam. Mogu kliknuti edit ili tabelu direktno
+
+13. strana
+--Nije ispravno popunjavati tabele preko table browsera, treba preko forme i onda tamo testiras
+popuni tabele preko URL formule tako sto unosis deo nakon ?mi   i zamenis table name
+https://usnconeboxax1aos.cloud.onebox.dynamics.com/?mi=SysTableBrowser&tablename=AXMVehicleParts&cmp=USMF  
+--U kodu table buffer se popuni sa onim sto je u select upitu i onda tome pristupam pomocu axmVehicleParts.VehiclePartQty
+Na list page ne moze obican data source, mora query. Kada prevuces query pojavice se i tabela. U query mozes vise data source
+i mozes da ih joinujes ili stavis neki range.
+Polja iz te tabele se prevlace u query. Iz queriy-ja direktno svakako neces moci
+-- Additional settings se testira u vehicle formi pri unosu new lines. Tamo zamenis ID i vidis promene
+
+14. strana
+Potrebno je da na paternu stavim da je property Show New Button - No
+I onda pravim new custom button koji se nalazi na action pane-u. Radim tako sto cu prvo napraviti formu koja je tipa dialog
+Nakon toga cu tu formu povezati sa menu item-om koji ce je otvarati na klik dugmeta
+--Formin menu item button se vezuje na menu item pomocu propertija "Menu Item Name"
+Display/Action/Output menu item se vezuje sa formom u propertiju "Object", a pre toga je potrebno navesti koji je "Object Type"
+Forma najcesce ima Data Source koji je tabela
+-- Prilikom kucanja koda za insert da se kreira nov upis vozila ttsbegin i ttscommit mogu da se koriste(ovde ne treba jer se radi samo jedan unos). To znaci da ako se unosi vise vozila npr. 3 i unesu se 2, a sa trecim se desi problem on nece uneti ni ona 2. Znaci izvrsava upis samo ako je sve ok. Za update i delete uvek moras da ih koristis.
+-- Validate metoda treba da radi iskljucivo validaciju jer radi i za edit i za insert. Treba napraviti create metodu na dataSource-u forme, ali dataSource tabele(To mi je u formi koja je dialog za kreiranje novog vozila).
+forma - datasource- axmVehcileTable - methods - create.
+-- Da dialog bude prazan na menu item button u propertiju open mode stavi 'new'
+-- ComboBox nije prikazivao dobre vrednosti jer labele nisu bile dobro podesene
+-- Za number sequence sam stavio da ne moze automatski da ga unese propertijem enabled: No
+
+15. strana
+Kada je patern forme DetailsTransaction onda trebam u donji tab da ubacim jednu tabelu, a u gornji list tabelu
+Na svaki grid moras staviti DataSource odredjene tabele
+Klikom na moj ID ce mi se otvoriti prikaz tog record-a, ali podesis u grid-u defaultAction i defaultAction label propertije ili na
+odredjeno polje stavis property hyperlink
+Da ne bi video 3. tab samo stavis property visible: No
+Da bih mogao da vidim sve ID-jeve kada kliknem 3 crtice(da ne bude sao Id1 i prazne labele) drugi dataSource se postavi property 'join data source' i dodam mu prvi dataSource
+
+16.
+Na ValidateButton sam postavio AutoRefreshData property na Yes, a za forme sam na closeOK ubacio kod koji refresuje formu koja poziva dialog
+Da bi mogao da promenis vrednost buttona u kodu moras mu property 'Auto Declaration' staviti na 'Yes' i samo napises createVehicle.enabled(true);
+-- Za pristup trenutnom rekordu iz klase
+	AXMVehicleTable axmVehicleTable;
+	axmVehicleTable = args.record();
+-- Za pozivanje neke metode
+	AXMCreateVehicle axmCreateVehicle = new AXMCreateVehicle();    == trenutna klasa
+	axmCreateVehicle.Create();
+Ne mozes da pristupis abstract klasi. Da bih odradio insert koristim EcoResDistinctProduct
+
+Create se radi tako sto podatke ubacujem u distinct tabelu jer ne mogu u EcoResProduct posto je abstract. Da bih prikazao 'Name' koristim relaciju koju imaju EcoResProduct i EcoResProductTranslation. EcoResProduct.RecId ce mi uz LanguageId formirati Product i tu dovuci moj number sequence. Za taj number sequence ce proslediti svoju 'Name' vrednost.
+
+18.
+Da bih za sve price u projektu mogao da odradim validaciju tj. ne dozvolim da cena bude manja od 0 morao sam dodati EDT Real koji je AXMPrice i property Extends Price
+Odradim EDT forme i tabele. Nakon toga ja u EDT forme u table property dodajem klasicnu tabelu, a program ce prepoznati da se koristi moja EDT(kako zna?)
+
+19.
+Da bih pomocu COC mogao da stavim tab da ne bude vidljiv moram staviti 'Auto Declaration' property tab page-a na Yes
+Za report se pravi nova tabela. Table type se postavi na TempDB. Polja se prevlace iz ranijih tabela.
+SQL Server Reporting Service
+Kada napravis report i zelis da promenis property DataSet-a neces moci da nadjes svoju klasu. Moras uraditi build.
+U reportu u Parameters na moj DS menjm vrednosti
+Kreiras table u dizajnu i dodas polja, a potom grupe
+Desni klik na report i 'Deploy Reports'
+Da spojim polja sa istim nazivom koristim porperty 'Hide Duplicates' i stavim nazivDS
+
+21. strana
+Kada dodajes menu trebas da odes u mainMenu i napravis ekstenziju i tu ides new menu reference i povezes sa svojim menijem
+
+-- Za link preko Num sequence je ispod kod ===
+
+
+=== Kada zapucava VS desni na task bar, task manager, details, VS padajuci meni i iskljuci xpp jer se puni memorijom
+=== Kontrola polja je ono sto se u formi nalazi desno. Npr u gridu se nalazi kontrola za neko polje tipa string
+=== Linkovi ka nekoj drugoj formi klikom na ID se podesavaju u kontroli tog ID-ja propertijem za hyperlink
+Posto kod mene to nema potrebno je da za formu property 'Default Action' bude MenuItemButton. Napravim MenuItemButton i stavim visible-No, default button-Yes, dataSource i MenuItemName(to je ono gde ce me prebaciti)
+=== Nakon sto stavis tacku kliknes ctrl+space da ti izadju moguce metode 
+=== Otvaranje tabele
+https://usnconeboxax1aos.cloud.onebox.dynamics.com/?mi=SysTableBrowser&tablename=AXMVehicleParts&cmp=USMF
+=== Da mi prikaze comboBox u formi napravim relaciju ForeignKey: dodam index, association, polja po kojima se spaja, cardinality (zeroOne, exactlyOne).
+Posto sam dodao relaciju idem desni na projekat i radim 'synchronize Ime_Projekta with database'
+Kada promenis nesto u tabeli(tipa dodas polje), a ta tabela ti je dataSource za neku formu onda desni na dataSource i 'Restore'
+=== SQL Management studio, run as administrator -> prva baza(AxDB), folder za tabele, dbo.AXMNazivTabele
+dbo. -- moje klase, tabele i ekstenzije
+=== rekord baze(mi=systableBrowser)
+https://usnconeboxax1aos.cloud.onebox.dynamics.com/?mi=systableBrowser&tablename=AXMVehicleLines&cmp=USMF
+
+
+Task1
+=====
+Kreiras nov projekat i kada odes na njega desni klik properties videces da je tvoj model vec dodat
+
+
+ToDo
+------
+== Obrisi visak koda i sredi, where i join u nov red, spoji selecte, refresh
+
+Multiple lines changed error kod validacije... ?
+
+
+
+PITANJA: ==========
+
+Pitanja za final demo:
+=====================
+U VS idemo kroz klase, objekte
+pita kod, properties, relacije tabele
+-------
+sta znaci batch, run, basebatch klasa
+sta je job i zasto je koristan
+kako debagujemo
+zasto koristimo callstack
+da li mislis da je kod dobar, sta mislis kako bi napravio bolje
+
+- Moja ideja
+Sta je modul
+
+Kreces od parametara, pa list page, pa header, pa validate. Imam validaciju u slucaju promene se desi ovo zbog toga i toga
+lookup, validate
+Prezentujes od pocetka sta se kreira. Tok tipa pravljenje sve od 0. Postavljanje parametara, kako se kreira, number sequence objasnjavam, kako dodajem linije, validiacije, sve radim na nov item. Validacije kazem kako rade, lookup
+
+AutoLookup grupa
+Glavna uloga indeksa je sortiranje
+Delete Action moze da se postavi cascade
+
+Foreigh key- stavlja po default  primarni kljuc kao jedno od polja
+Relation - sam postavljas polja
+
+
+System.Text.RegularExpressions.Regex - pita jel klasa, biblioteka, metoda u krajnjem slucaju reci kucao sam na google
+samo nemoj reci ne znam
+1. customer postavljena primary adresa
+2. customer ako unesem ovako ne moze
+3. ako unesem vec postojece ne moze
+
+Moze da te pita gde si uradio validaciju za promenu cene i odmah da otvoris
+
+U slucaju da zelimo new ne mzoe moze samo koliko enum-a ima.
+Enum dozvoljava prikazivanje 1 vehicle part za svaki tip. Mogu da dodam nov tip. Ne mogu new za neki novi tip. To bi se radilo sa EDT jer ne definise u visual studiu nego se dodaje record preko UI. 
+
+Nisam bio najsigurniji i ostavio sam da radi za sve dataSource-ove, a ne samo za 1
+research true - vraca se kursor na poziciju gde je bio kada je kliknuto
+ako nema true prikazace samo prvi record
+koje kombinacije idu kako refresh
+
+Prezentovanje svega na klijentskoj strani
+Kako bi ovo uradio bolje
+
+canRunInNewSession - zbog greske
+
+Sto je runnable klasa - to je klasa koja koristimo da napravime update na neke podatke u baza 
+Razlika od run base i runbade batch
+Sta je report
+Drufo prasanje za call stack sta je dok debagiras 
+Koje opcije mozes da vidis dok debagiras locals callstack primer
+
+https://usnconeboxax1aos.cloud.onebox.dynamics.com/?prt&debug=vs&activityid=52681769-d41a-0006-cf50-6f521ad4d901&cmp=USMF&mi=EcoResDistinctProductListPage
+
+https://usnconeboxax1aos.cloud.onebox.dynamics.com/?mi=systableBrowser&tablename=EcoResProduct&cmp=USMF
+
+https://usnconeboxax1aos.cloud.onebox.dynamics.com/?mi=systableBrowser&tablename=EcoResProductTranslation&cmp=USMF
+

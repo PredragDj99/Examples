@@ -1,0 +1,61 @@
+Linkovi:
+=======================================================================================================
+
+SSRS Report
+https://ax.docentric.com/create-a-new-custom-ssrs-report-in-d365fo/
+
+Find method za tabeli:
+https://dynamics365musings.com/d365-find-method/
+
+YT sa raznim objasnjenjima npr. number sequence:
+https://www.youtube.com/@peterramer
+
+Extension, MetaData search, <filter_1>:<filter_1_value>   -->   code: "find"   npr. i pritisnes strelicu
+
+Number sequece:
+Iz ovog fajla uradi samo 1. korak za dalje gledaj snimak
+https://www.cloudfronts.com/uncategorized/develop-number-sequence-for-custom-module-in-d365-finance-and-operations/
+https://www.youtube.com/watch?v=idzW2nMJD60
+
+List Page
+https://learn.microsoft.com/en-us/dynamicsax-2012/developer/list-page-overview
+
+Update:
+Update se odnosi na tekuci rekord
+update_recordset se koristi uz where uslov
+https://learn.microsoft.com/en-us/dynamicsax-2012/developer/update-table-method
+https://dynamics365musings.com/update-data-in-d365/
+https://learn.microsoft.com/en-us/dynamicsax-2012/developer/update-recordset
+
+While select - menja record u odredjenom where uslovu
+https://learn.microsoft.com/en-us/dynamicsax-2012/developer/while-select-statements
+
+Kada mi ne radi hyperlink property
+https://learn.microsoft.com/en-us/dynamicsax-2012/developer/how-to-specify-the-default-action-for-the-list-page-grid
+
+RunBaseBatch
+https://learn.microsoft.com/en-us/dynamicsax-2012/developer/walkthrough-extending-runbasebatch-class-to-create-and-run-a-batch
+
+Da kod reporta ako ostavim prazna polja unos bude prazan, a ne default
+https://mfmujahidmim.wordpress.com/2012/12/18/simple-ui-builder-class/
+
+SSRS group by multiple columns
+https://www.google.com/search?q=ssrs+report+group+by+multiple+columns&sca_esv=558074753&source=hp&ei=JTvfZPqNBOKsxc8PoeOU6Ac&iflsig=AD69kcEAAAAAZN9JNed6lKKzSmId2WqA9c1BrIK_AYpf&oq=ssrs+report+grou&gs_lp=Egdnd3Mtd2l6IhBzc3JzIHJlcG9ydCBncm91KgIIAjIFEAAYgAQyBRAAGIAEMgUQABiABDIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeSOVEUABYtjJwBXgAkAEAmAGBAaABlQ6qAQQyMC4xuAEDyAEA-AEBqAIAwgIFEC4YgATCAgsQLhiABBjHARjRA8ICBxAAGIAEGAo&sclient=gws-wiz
+
+SSRS multiple row grouping
+https://www.mssqltips.com/sqlservertip/6533/multiple-row-grouping-levels-in-ssrs-report/
+
+Tipovi hijerarije - kada sam radio distinct za EcoResProduct bilo je potrebno da EcoResProduct bude dataSource
+https://www.facebook.com/legacy/notes/420250911323844/
+
+https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-macros
+
+Callstack
+https://learn.microsoft.com/en-us/visualstudio/debugger/how-to-use-the-call-stack-window?view=vs-2022
+
+Refresh, reread, research, research(true), query
+https://mfmujahidmim.wordpress.com/2015/01/14/difference-between-research-executequery-methods-at-form-data-source-level/
+
+AutoReport, AutoLookup
+https://learn.microsoft.com/en-us/dynamicsax-2012/developer/best-practices-for-field-groups
+

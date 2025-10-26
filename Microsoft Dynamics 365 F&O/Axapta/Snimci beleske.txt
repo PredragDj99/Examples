@@ -1,0 +1,341 @@
+Na projekat desni klik, properties, synchronise database on build postavi na true
+Modeli se brisu u nekom fodleru na C lokaciji: AOS service/packageslocaldirectory/model 
+
+D365 session 1 - user interface concepts
+----------------------------------------
+19.20 - filtering options- sort, filter pane, quickFilter, grid column filter
+24.00 - wilf cards - *1, 1*, 1..10
+25.30 - task recorder
+39.40 - sve sto je potrebno iz view menu
+40.20 - pravljenje modela
+48.30 - sinhronizovanje baze i organizovanje projekta tako da svaki element im svoj folder
+Organizovanje projekta tako da svaki element ima svoj folder
+Exstensions> Dynamics 365 > Options > Dynamycs 365 expand> Projects > Organize project by element type
+50.35 - dodavanje EDT String
+53.00 - pravimo ekstenzije, ali prvo mora da se doda referenca
+58.10 - project properties
+58.35 - set as startup object, sada pokrecemo pomocu ctrl+f5(start without debuging)
+
+D365 session 2 - Architecture
+-----------------------------
+11.30 - razlika u arhitekturi overlaying vs extension 
+12.30 - prednosti extension
+17.00 - kreiramo klasu da primenimo metode za nasu ekstenziju
+18.00 - mozemo uzeti vec postojeci metod
+21.40 - greska koja kaze da nemas referencu
+28.00 - uzimanje event-a 
+
+D365 session 4 - Label & Resources
+----------------------------------
+3.30 - kada, zasto se labele koriste
+5.15 - kreiranje label fajla
+6.15 - biram jezike na koje moze da se prevede
+8.20 - dodavanje novih jezika za vec kreiranu labelu
+13.10 - resurs(dodali smo sliku)
+17.00 - tipovi enuma
+19.40 - primer tih tipova enuma
+20.40 - properti enuma - Is Extensible -> true
+22.30 - ekstenzija enuma
+23.50 - best practise za enum-e
+
+Data Dictionary part 1
+----------------------
+2.30 - menjanje modela projekta
+AOT - application object tree
+3.45 - Interner Information Service(IIS)
+startovanje pomocu njega i W3C je mnogo brze nego da kliknemo start u VS
+9.20 - na UI se prikazuje labela enuma
+9.50 - enum slider YES/NO
+13.45 - propertiji
+Help - pojasnjenje, ali ne kao na label nego detaljnije, koja je potreba tj. zasto je kreirano
+Label - ono sto korisnik vidi
+Name - naziv elementa
+19.30 - primitivni tipovi
+EDT - etended data types
+23.40 - kod EDT setovani propertiji su nasledjeni od primitivnog tipa
+String size, help text, adjustment, alignment
+reference table - enum cuva vrednosti za jednu specificnu tabelu
+form help - zasto je kreiran za tu tabelu
+28.30 - propertiji za date tip
+date dat - format dana
+date format, date month, date separator, date year
+Extends - ovo je extendovan od ovog vec kreiranog tipa
+help text - zasto je bas date tipa i bas onog base tipa (primitivnog tipa)
+
+Enum type - kog je tipa
+
+Tabele
+fields - polja
+43.00 - field groups
+field groups - logicki povezana polja npr. ulica, broj, grad to ce biti field grupa Adresa koja ce imati 3 polja jer cemo verovatno
+	sva tri polja prikazivati zajedno na jednoj formi pa ne dodajemo 1 po 1 nego odmah celu grupu, takodje moze dodati novo polje u 	grupu i (radi affect) primenice se svuda gde se primenjuje grupa, ne moramo dodatno sve raditi ili obrisemo
+indexes - brza pretraga po tabeli
+full text indexes - pretraga po nekom stringu npr. da li postoji neka rec u nazivu
+relations - povezivanje
+delete actions (ne koristi se u 365) - sta ce se desiti sa nekom tabelom ako obrisemo povezanu tabelu
+45.05 - na samoj relaciji postoji properti "on Delete" - sta se desi ako se obrise tabela
+mappings - mapiranje polja
+methods, events
+
+47.20 - tabela
+Developer documentation - stavis labelu koja objasnjava kakav vid podataka sadrzi nasa tabela npr. za apartmane koji se izdaju
+Extended data type
+table type - regular(podaci se postojano cuvaju), za temporary table imamo InMemory, TempDB
+Created by, created date time, modified by, modified date time - da li zelimo da vidimo ko je i kada kreirao/modifikovao
+54.20 - table group - kakav tip podataka cuvam u tabeli
+55.40 - za polje tabele
+visible, allow edit, allow edit on create, mandatory(obavezna vrednost)
+
+
+Data Dictionary part 2
+----------------------
+1.15 - otvaranje tabele u browseru
+u URl 'mi' predstavlja menu item
+7.00 - dodavanje index-a
+8.10 - dodavanje primary index-a
+18.50 - relacije sa tabelama
+19.20 - kreiranje relacije
+Related table - property tabele koja nije parent
+Name - kao tabele ka kojoj pravimo relaciju?
+Cardinality - kardinalnost nase tabele, koliko puta moze da se pojavi u nasoj child tabeli
+Related Table Cardinality - da li parent key mora da ima vrednost
+21.00 - normal/fixed
+field - nasa tabela
+related field - parent tabela
+28.30 - on delete
+cascade - ako se brise element roditeljske tabele brise se i u child
+restricted - ako probam da izbrisemo u parent tabeli nece biti dozvoljeno
+cascadeRestricted - neki uslov odlucuje da li ce biti cascade ili restricted
+
+35.00 - inMemory, TempDB
+
+47.00 - kreiranje query-ja
+najcesce ne pravimo promene na propertijima, eventualno query type
+47.35 - dataSource
+48.00 - biram koju tabelu koristim u 'Table' propertiju
+query je kao jedan select statement
+Dynamic Fields - ako stavimo yes moci cemo da povucemo sva polja tabele
+50.40 - dodavanje DataSource
+Join mode - kakve rezultate zelimo na query kod ova 2 source
+First only - ako je YES prekinuce query i vratiti samo prvo rezultat, npr zbog optimizacije, vracanje najbrzeg record-a
+Use relations - ako je YES ne moramo specificirati relaciju jer ce se napraviti join sa vec postojecim relacijama
+		NO ako zelimo da spojimo po nekom drugom polju, a ne po ovom po kome su povezani
+54.40 - mozemo range napraviti po nekom polju
+
+
+User Interface
+--------------
+14.20
+
+16.30 - MenuItemDisplay: Object(ovde stavis svoju formu), Object Type
+
+38.30 - mozes da vidis kako ce se tabela prikazati na UI
+39.25 - Dynamics365, addins, run form patterns report - otvaranje excel fajla
+42.40 - button group je na Dynamics-u jedan deo(transactions, copy...)
+45.00 - drop dialog button
+47.00 - menu item button, menu item
+menu item button - ima propertije name i type
+menu item - properti name, label, object
+49.00 - MainTab
+53.00 - Ako za form command button control u propertiju dodam remove pojavice se na UI?
+57.00 - na grid goToForm da otvori prikaz UI
+1.03.30 - format view option, koji prikaz da bude otvoren na prvom mestu
+1.04.00 - normal image, slika koja ce stojati
+1.04.40 - create permission, delete permissions
+1.05.00 - enum parameter - opcije koje enum nudi i filtrira po tome, enum type parameter - filtriranje po odredjenom elementu
+
+Za select od prvog do poslednje 1. select pa shift+poslednji
+
+
+12. lab
+----------
+6. str
+u panoramu se prvo doda svaki tabpage pa se onda podesavaju paterni jer moraju biti po redosledu
+
+
+13. lab
+----------
+Kod menu item type-a za dosplay:
+Action - akcija
+Display - prikaz
+Output - report
+
+16. korak na 3. strani
+prvo na projekat desni klik, properties, synchronize database on build postavi na true
+u services:
+-> w3c klikni start ako nije pokrenuto isto i za sve ove
+isto -> world wide web publisher
+-> management reporter
+
+potom otvoris edge i refresh
+--> mozes videti u modules, fixed assets, fixed assets, fixxed assets
+---> kada postavis neku formu kao 'set as startup object' onda ctrl+f5 i otvorice ti dynamics 
+
+Label i Caption su isto !!! kopiram iz label fajla i paste
+
+Greska
+A reference to 'Dynamics.AX.SourceDocumentationTypes, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' is required to compile this module.	AssetInssurentSystem (USR) [Asset Insurance System]	C:\AOSService\PackagesLocalDirectory\Bin\XppSource\DevBasicAIS\AxTable_aisInsurancePayment.xpp
+----> Referenca u Dynamics.AX.SourceDocumentationTypes znaci fali SourceDocumentationTypes
+----> dodaje se u extensions, dynamics 365, model management, update model parameters --> potom isto, ali sa refresh models 
+
+
+X++
+-------
+1.40 - Source control Explorer
+2.15 - Team Explorer, My word - taskovi na mom imenu
+2.20 - pending changes - promene koje sam napravio
+7.20 - shortcut ctrl+space
+8.00 - data types
+
+indeks pocinje sa 1
+
+16.30 - operatori
+27.50 - history
+31.30 - breakpoints
+31.50 - conditional breakpoint, desni na break point pa edit labels - stavis uslov da ne ides next next nego npr. counter==10
+33.00 - attack to process
+41.00 - step out
+47.45 - kada ti padne seervice
+51.00 - header komentari ///
+
+
+retry - koristi se u catch bloku da se jos jednom vrati u try blok i resi problem
+ :: - se koristi za pozivanje staticke metode
+
+Class overview and Event handling
+---------------------------------
+23.00 - desni klik na metodu i mozes birati pre ili posle izvrsavanja nje
+
+Database manipulation
+----------------------
+18.40 - forupdate, ttsbegin, ttscommit
+ttsbegin, ttscommit isu u paru - znaci da ce se izvrsiti sve ili nista
+22.20 - while i neka logika za sve za koje vazi uslov
+27.00 - insert_records
+28.40 - newBOM.data(BOM)  - kopira sve iz BOM pomocu recju data
+
+16. lab
+----------
+desni na table i open in table browser
+object not referenced --> problem u klasi jer je object na nju podesen
+to mozes otkriti i tako sto u toj klasi stavis breakpoint na pocetku
+
+defaault kod switch
+default: 
+	info(strfmt("Printaj defalt"));
+
+napravio sam problem i iskljucio button-e koristeci handler u kome sam celu grupu iskljucio
+
+OOP
+----
+Kada nasledjujes klasu moras staviti _Extension
+ExtensionOf se koristi kao atribut da kazes da deklarises neku klasu
+
+Classes in F&O
+----------
+clear();  - za praznjenje buffera tabele
+
+
+D365 session 15 - data entities
+-------------------------------
+Entitet je neki objekat iz realnosti
+5.00 - Kategorije 
+7.40 - kreiranje entiteta
+24.10 - u aplikaciji, modules, workspaces, data management
+	kada kreiras nov entitet koji ne postoji treba framework parameters, entity settings, refresh entity list
+25.00 - data entities, refresh mapping-a
+25.40 - export
+29.30 - prebaci npr. u excel
+
+
+18. lab - data entities
+-----------------------
+mapped se koristi za one koje imamo u tabeli
+unmapped recimo ako imamo neki procenat za koji treba da se poveca/smanji placanje, a nema ga u tabeli nego je logika zadatka
+tip polja ne pise u propertijima nego iznad njih
+ako pise da je tip EDT onda otvoris taj EDT i kliknes desni klik, properties
+
+Path: [AxDataEntityView/VendVendorEntity/Metadata/VendTable/DataSources/HcmWorker/Relations/HcmWorker/RelationHolderEntity]:The table/view/data entity 'HcmWorker' could not be found.	
+-- Sa leve strane udjes u AOT i tamo trazis HcmWorker tabelu i pogledas koji je model pa ga dodas
+
+Path: [AxDataEntityView/VendVendorEntity/Metadata/VendTable/DataSources/DefaultDimensionDAVS/Relations/QueryDataSourceRelation1/TableField]:Failed to locate table field for DimensionSetEntity.RecId.
+-- U AOT trazis DimensionSetEntity. Prvo udjes u DataModel, Data Entities, DataSetModel
+
+X++
+-----
+RunnableClass pa isprobaj primer iz OOP
+ona se dobije sa default main metodom
+u main-u se pravi objekat te runnable klase da bi mogao da pozoves
+testClass.method2();
+mozes da pozoves tako sto ides desni klik, set as startup object, start without debugging
+a mozes i direktno preko URL samo promenis cmp=dat&mi=sysclassrunner&cls=testClass
+
+DEBAGOVANJE
+-----------
+ breakpoint, debug, attach to process, sad ili iisexpress ili w3c(w3wp), show process from all users cekiraj, attach, 
+f10 je linija po linija, f11 ide na metod neki, a f5 proces do narednog braikpointa
+imam locals dole i gledam vrednosti promenljivih
+
+
+D365 session 23 - Security
+--------------------------
+4.00 - kreiranje workera
+8.00 - uloge(role) i privilegije
+12.20 - access level: CRUD,...
+17.00 - security
+27.30 - object type
+41.40 - configuration keys, konfiguracijski kljucevi
+
+SSRS = najbolje je odradiri report prateci korak po korak ovaj snimak(10.00-52.00)
+---------------------------------------------------------------------
+Za report
+Query based - report na query
+RDP - na klasama se koristi sa razlicitim operacija koji ne mogu na query
+Table Type property - TempDB kao bafer za kod, najcesce se koristi za report
+15.00 - sta se ispisuje u report
+23.00 - pravljenje reporta
+29.45 - dizajn za report
+	auto design - za query, moze da se pomera sa drag and drop
+	precision design - kada ima onoliko kolona koliko ima polja u query-ju 
+30.30 - dodavanje elemenata
+33.00 - pravljenje tabele
+39.30 - izvestaj treba da bude 6,5 inca
+47.00 - SQL Server Reporting Services, cesto pravi problem, ako dodas novo polje i ne pojavi se restartuj ovaj servis
+	ako imas bilo kakav problem sa reportom probaj prvo da restartujes ovaj servis
+48.30 - u dynamics
+
+MS dokumentacija - SSRS treba da se koristi uz pomoc labela. Labele automatski prevode report ukoliko je pokrenut u drugoj drzavi
+ili regionu sa drugim jezikom
+
+
+Form lifecycle
+---------------
+3.50 - metode za form opening
+9.00 - record creation
+11.10 - field modification
+14.50 - Save/Update/Leave record
+18.50 - record delete
+20.35 - form close
+21.20 - form tips
+FormRun - pristup resursima
+DataSource - dodeljivanje imena
+Active Record - pozivanje pomocu imena
+DataSource Query - pozivanje celog query-ja
+DataSource Query Run - query run
+Field Value - pozvivanje polja pomocu imena
+Control - AutoDeclaration ili element.control(...)
+26.00 - manipulacija podaci u formi
+26.20 - allow creation/modification/deletion
+Nije ispravno napraviti dugme koje nece dozvoliti ove akcije jer postoje shortcut-i na tastaturi koji mogu obaviti ove akcije
+26.50 kesiranje metoda
+28.40 - filter listaPage
+31.30 - lookup in code
+
+
+Application table relations
+---------------------------
+10.00 - Purchase order
+22.10 - kreiranje salesTable
+
+
+

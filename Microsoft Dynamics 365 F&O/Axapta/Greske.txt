@@ -1,0 +1,185 @@
+Insufficient information exists to identify the cause of failure
+Hide diagnostic information
+Session ID: bbadecd0-06e4-412b-ae05-5d19b0b5e6f3
+Search timestamp: 2023-07-18T13:01:41.189Z
+7.0.23025.1
+-- Rebuild, Start W3C
+
+Path: [AxDataEntityView/VendVendorEntity/Metadata/VendTable/DataSources/DefaultDimensionDAVS/Relations/QueryDataSourceRelation1/TableField]:Failed to locate table field for DimensionSetEntity.RecId.	AssetInssurentSystem (USR) [Asset Insurance System]	
+-- Pise ti DimensionSetEntity.RecId, znaci ides u AOT, Data Model, Data Entities, DimensionSetEntity i gledas model(Demensions)
+	pa ga dodajes u extensions
+
+Path: [AxDataEntityView/VendVendorEntity/Metadata/VendTable/DataSources/HcmWorker/Relations/HcmWorker/RelationHolderEntity]:The table/view/data entity 'HcmWorker' could not be found.	AssetInssurentSystem (USR) [Asset Insurance System]
+-- AOT, Data Model, Tables, HcmWorker i dodas njegov model u extensions (Personnel Core)
+
+Path: [AxEdtReal/AXMPartQty/Extends]:The edt 'AXMPartQty' extends 'ProductQuantity', but 'ProductQuantity' is not found. Are you missing a model reference?	AXMVehicleManufacturer (USR) [AXM Vehicle Manufacturer]	C:\AOSService\PackagesLocalDirectory\AXMVehicleManufacturer\AXMVehicleManufacturer\AxEdt\AXMPartQty.xml	0
+-- AOT, Data Types, Extended Data Types, pogledam koji model koristi ProductQuantity i dodajem ga u extensions
+
+A reference to 'Dynamics.AX.Retail, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' is required to compile this module. AssetInssurentSystem (USR) [Asset Insurance System]
+-- Dynamics.AX.Retail znaci treba u extensions da se doda Retail
+
+Unable to find the report design AXMDemo_SalesOrder.Report.
+-- Na projekat desni klik, deploy reports
+	 
+The name 'VehiclePartId' does not denote a class, a table, or an extended data type.	AXMVehicleManufacturer (USR) [AXM Vehicle Manufacturer]
+Javlja se kod Find() i kod Extends() -- Desilo se kada sam ove funkcije pravio
+-- Odes u tabelu, kliknes na polje i gledas property EDT i njega stavis na to mesto u metodi	
+
+Table 'AXMVehicleFormula' does not contain a field named 'AXMVehicleType'.
+-- U redu je ime tabele, ali se polje ne zove ovako. Pogledaj polja i zameni
+
+The name 'exist' does not denote a predefined function,  a static method on the Global class nor a previously defined local function.AXMVehicleManufacturer (USR) [AXM Vehicle Manufacturer]
+-- Kada ne prepoznaje staticku metodu i nece da je pozove, samo stavim AXMVehicleTable::exist
+Dodas nazivTabele::metoda  jer se staticke metode tako pozivaju
+
+The name 'AXMVehicles' does not denote a class, a table, or an extended data type.	AXMVehicleManufacturer (USR) [AXM Vehicle Manufacturer]
+-- Mora biti klasa, tabela ili EDT -- pokusao sam formu da napravim	
+
+Cannot edit a record in Vehicles (AXMVehicleTable). Update must be performed inside a transaction.
+-- Treba ttsbegin, ttscommit	
+
+Cannot edit a record in Vehicles (AXMVehicleTable).
+The operation cannot be completed, since the record was not selected for update. Remember TTSBEGIN/TTSCOMMIT as well as the FORUPDATE clause.
+-- Potrebno je dodati forupdate. select forupdate
+
+The name 'ChangeHeaderStatus' does not denote a predefined function,  a static method on the Global class nor a previously defined local function.
+-- Ako pozivas metodu iz iste klase potrebno je staviti this. Ako je iz druge potrebno je da bude static ili da napravis instancu pa da kazes Klasa1.Metoda1
+
+The model element was saved with unparsable source code and cannot be used. Please edit the element in Visual Studio to fix the errors.
+-- Kada pozivas novu metodu u njoj moras imati tip promenljive. this.NovaMetoda(prom)  ---> public void NovaMetoda(str prom)	
+	
+transactional integrity
+-- ttsbegin, ttscommit fale pre update
+
+Instance field 'vehType' is not accessible from static method
+-- AXMValidatePartsBatch axmValidatePartsBatch = new AXMValidatePartsBatch();      == Klasa u kojoj je main
+-- axmValidateParts.vehType = "Neka vrednost";
+
+The model element was saved with unparsable source code and cannot be used. Please edit the element in Visual Studio to fix the errors.
+-- Kada prosledjujes record tj. red tabele kao paramtar, potrebno je da stavis tu tabelu kao tip NazivMetode(AXMTabela axmTabela)
+
+The model element was saved with unparsable source code and cannot be used. Please edit the element in Visual Studio to fix the errors.
+The name 'parmAXMVehicleType' denotes a method, and cannot be reused in this context.
+-- Copy-paste problem. Verovatno napisano isto nesto ovde konkretno 'parmAXMVehicleType'	
+
+The 'AXMReport_Controller' argument of the 'ssrsReportStr' compile-time function does not specify a known report.
+-- 'AXMReport_Controller' zameni sa nazivom tvog reporta koji ti je u solution explorer-u	
+
+Report ne prikazuje boje, background color ili nesto
+-- Desni klik, Deploy report
+
+
+=== D365
+
+
+Cannot edit a record in Vehicles (AXMVehicleTable). Update must be performed inside a transaction.
+-- ttsbegin i ttscommit fale kod update
+
+Database insert operation is not allowed on an abstract table.
+-- you can’t insert any records directly to any abstract class, in the same way as you can’t directly instantiate any abstract class. What you can do is to insert data to a concrete child of the abstract table (again, you can see the similarity with classes).
+EcoResProduct has three children: EcoResDistinctProduct, EcoResDistinctProductVariant and EcoResProductMaster.
+
+Unable to find the report design
+-- Potrebni servisi da bi se uradio Deployment: SQL Server Reporting Service, Management Reporter 2012 Process Service, W3C
+-- Desni klik na report i 'Deploy Reports'
+==== Ako u otputu(u konzoli takodje pise i ovo dole) pise ovo "Deploying rdl files for report AXMManufacturedVehiclesReport failed."
+-- This might be because the SQL Server Reporting Services has not been installed, or is not configured correctly.
+  System.Web.Services.Protocols.SoapException: The parameter 'AXMReportDS_axmCOEmissionValue' is hidden or internal and is contained in a cell definition.
+-- Mozda da se obrise data set i doda novi posto onda on automatski generise parametre, a meni je problem nastao brisanjem starog parametra
+-- Resenje(DODA NOVI PROBLEM): desni klik na report, open with XML editor i obrisem ovo jer sam izbacio.
+&lt;CellDefinition&gt;
+          &lt;ColumnIndex&gt;1&lt;/ColumnIndex&gt;
+          &lt;RowIndex&gt;1&lt;/RowIndex&gt;
+          &lt;ParameterName&gt;AXMReportDS_axmCOEmissionValue&lt;/ParameterName&gt;
+        &lt;/CellDefinition&gt;
+
+Report name is not set. Please set report name using parmReportName method.
+-- controller.parmReportName(ssrsReportStr(AXMMAnufacturedVehiclesReport, Report)); // u main-u
+-- this.parmReportContract().parmReportName(ssrsReportStr(AXMMAnufacturedVehiclesReport, Report)); // u metodi
+
+Something went wrong while generating the report. Please try again.
+Specified cast is not valid.
+-- U Contract klasi se ne poklapaju tipovi dataMemberAtributa. Uporedi inicijalizaciju i kod.
+
+This report requires a default or user-defined value for the report parameter 'AXMReportDS_toDate'. To run or subscribe to this report, you must provide a parameter value.
+-- Odes na report, parameters i postavis 'nullable' i 'allow blank' propertije na 'true'
+
+RunBaseBatch ne radi u pozadini
+-- Ukljuci servis 'Microsoft Dynamics 365 Unified Operations: Btach Management Service'
+
+Fault was thrown by the service for request ab497aa6-b1a1-4271-890b-8b64153a95c1. Exception details:
+Type: System.InvalidCastException
+Message: Invalid cast from 'System.Int32' to 'Microsoft.Dynamics.Ax.Xpp.AxShared.Date'.
+-- Ne mozes da poredis dva datuma
+
+Unable to execute static method main when type parameter is not specified. Parameter name: type
+The menu item with name axmvehiclesbytypelistpage could not be opened.
+-- Promenio sam ime klase. Moras da odem u menuItem i podesis novi object property
+
+Cannot edit a record in Vehicles (AXMVehicleLines). The record has never been selected.
+-- Poceo si da menjam nesto sto nije u tabeli. Uradio sam update, a nisam mogao jer ne postoji jos uvek. Ispravio tako sto sam dodao if u kome proverim da li postoji.
+	if(AXMVehicleLines::exist(this.VehicleId, this.LineNum))
+                {
+                    this.update();
+                }
+Kada odem u formu koja prikazuje imacu isti problem cim dodam novu liniju gde se brojevi linija poklapaju. Zato kada odem u formu trebam na taj dataSource da stavim CounterField property na LineNum, on ce automatski povecavati brojac. Isto tako trebam da imam create metodu na tom dataSource-u i podesim append = true. To znaci da ce se raditi inkrement u pozitivnom smeru.
+
+Warnings:
+=========
+
+Problem za: cache za display metodu
+-- [SysClientCacheDataMethodAttribute(true)]
+
+No XML documentation headers are provided for 'AXMValidatePartsBatch.description'.
+-- Iznad metode stavi /// i iskocice ti da napises summary za tu metodu
+
+The XML documentation for 'exist' is not well-formed.
+-- Obrisi ceo summary i stavi /// on ce ti izbaciti kako je ispravno pa samo dopuni dokumentaciju
+
+The placeholder '%4' to strFmt is not used in the format string
+-- Ispravno je da dodas literalStr
+	Error(literalStr(strFmt("@AXM_VM:messVehiclePartsQuantityExceeded", axmVehicleParts.VehiclePartQty)));
+
+The placeholder '%3' to strFmt is not used in the format string.
+-- Stavi tacku na kraju stringa
+
+Unknown label '@AXM_VM:messThresholdPriceCantBeNegative'.  Legacy labels (such as the label id @SYS12345) are case insensitive and modern labels (such as 'MyLabelId' in @MyLabelFile:MyLabelId) are case sensitive. Use upper casing when referring to legacy labels and exact casing for modern labels.
+-- Dodaj literalStr ispred
+-- Ovde ipak nesto drugo treba posto ce biti warning za zagradu	
+
+
+The language element at (95, 8) is not indented correctly. The element should start in column '9'.
+-- Nije pravilno uvucen. Potrebno je da poravnas zagrade petlje i da ono unutar nje bude na poziciji 1. taba
+-- Najlakse ti je da sve selektujes pa ctrl+k i onda ctrl+f
+
+No caching is set up for the table.
+-- Cache Lookup stavis na FoundAndEmpty. To znaci da pamti kada si nesto trazio i nasao i jos da pamti ako nisi nasao
+
+The table 'AXMVehicleParts' has the RecId index enabled, but the Replacement Key is not specified even though at least one Alternate key exists.
+-- Idi u property tabele i nadji Replacement Key i tu podesi svoj
+
+
+NE ISPRAVLJENI
+==============
+Use passive join on the datasource AXMVehicleLines which is bound to a tab page control on the form AXMVehicles.
+-- Ovo je greska!! Ako to uradim izgubicu sve podatke u lines
+-- U AXMVehicles udji u DataSources i na AXMVehicleLines property LinkType postavi na passive	
+
+Property 'Text' must have a label ID as its value, and 'Vehicle' is not a label ID.
+-- Iz nekog razloga nece da mi prikaze text labelu pa sam samo rucno napisao sta treba da bude text
+
+Menu item AXMVehiclesListPage should be fixed to point to its detail form instead of list page form AXMVehiclesListPage.
+-- Zato sto Vehicles i Vehicle list page pokazuju na formu AXMVehiclesListPage
+
+1. The relation under the extended data type (EDT) 'InventSerialId' must be migrated to table relation. Consider using EDT relation migration tool.
+2. EDT relation found in field VehiclePartSerialId of table AXMVehicleParts. It should be migrated to a regular table relation.
+-- Postoji property 'Ignore EDTRelation' koji mogu da postavim na Yes, ali ce napraviti problem
+- Ako je postavljeno na "Yes", to znači da sistem neće uzeti u obzir relaciju tog polja sa drugim tabelama prilikom uređivanja zapisa. To omogućava da uređujete vrednost tog polja nezavisno od eventualnih ograničenja ili veza sa drugim entitetima.
+- Ako je postavljeno na "No" (što je uobičajeno podrazumevana vrednost), sistem će uzeti u obzir relacije tog polja sa drugim tabelama i ponašaće se u skladu sa ograničenjima i pravilima koja su postavljena na osnovu tih relacija.
+
+
+ '' is not a label ID.
+-- Ne mogu da napravim praznu labelu, a zbog greske u programu sam morao da proverim da li je prazan string u pitanju
+
+
+
