@@ -48,5 +48,67 @@
 
 <div id="txt"></div>
 
+<canvas id="myCanvas">
+  Ovde ne moze ni jedan tag. Mozes samo da crtas
+</canvas>
+<script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx1 = canvas.getContext("2d");
+  var ctx2 = canvas.getContext("2d");
+  var ctx3 = canvas.getContext("2d");
+  
+  let gradient = ctx1.createLinearGradient(0, 0, 170, 0);
+  gradient.addColorStop("0", "magenta");
+  gradient.addColorStop("0.5", "blue");
+  gradient.addColorStop("1.0", "red");
+  // Fill with gradient
+  ctx1.strokeStyle = gradient;
+  ctx1.lineWidth=3;
+
+  ctx1.moveTo(150,75);
+  ctx1.lineTo(150,0);
+  ctx1.stroke();
+
+  ctx2.moveTo(150,75);
+  ctx2.lineTo(75,125);
+  ctx2.stroke();
+
+  ctx3.moveTo(150,75);
+  ctx3.lineTo(230,75);
+  ctx3.stroke();
+
+  var ctxText = canvas.getContext("2d");
+  ctxText.font = "20px Arial";
+  ctxText.fillText("1", 200,25);
+  ctxText.fillText("2", 255, 45);
+  ctxText.fillText("3", 280, 82);
+  ctxText.fillText("4", 260,114);
+  ctxText.fillText("5", 210, 135);
+
+  ctxText.fillText("6", 145, 145);
+
+  ctxText.fillText("7", 80,140);
+  ctxText.fillText("8", 30, 114);
+  ctxText.fillText("9", 10,82);
+  ctxText.fillText("10", 30,47);
+  ctxText.fillText("11", 80,25);
+  
+  ctxText.fillText("12", 140,20);
+  
+  const today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    setTimeout(startTime, 1000);
+
+    //za onaj veliki kao...
+    let hourPosition = (h*360/12)+(m*(360/60)/12);
+    let minutePosition = (m*360/60)+(s*(360/60)/60);
+    let secondPosition = s*360/60;
+
+</script>
+
 </body>
 </html>
