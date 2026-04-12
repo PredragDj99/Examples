@@ -4,22 +4,26 @@
     position:relative;
     left:58px;
     top:50px;
-  }
-  .dig{
+}
+
+.dig{
   	position:absolute;
-  }
-  .hour{
+}
+
+.hour{
   	position:absolute;
     background-color:green;
     height:3px;
     width:3px;
-  }
-  .min{
+}
+
+.min{
   	position:absolute;
     background-color:blue;
     height:3px;
     width:3px;
-  }
+}
+
   .sec{
   	position:absolute;
     background-color:orange;
@@ -41,3 +45,13 @@
     background-color: green;
     color: white;
   }
+
+#txt{
+  font-size: 40px;
+}  
+#myCanvas{
+  width: 500px;
+  height: 500px;
+  border:1px solid #3a3a3a;
+  border-radius: 50%;
+}
